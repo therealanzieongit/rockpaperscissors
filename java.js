@@ -11,24 +11,35 @@ function getComputerChoice(min, max) {
         // return number
 }
 
-const computerChoice = console.log(getComputerChoice(1, 3));
+// const computerChoice = console.log(getComputerChoice(1, 3));
+
+function computerEnglish(computerChoice) {
+    if(computerChoice === 1) {
+        return "rock";
+    } else if(computerChoice === 2) {
+        return "paper";
+    } else if(computerChoice === 3) {
+        return "scissors"
+    }
+} 
 
 // Player Input
 function getPlayerChoice() {
     playerInput = prompt("Are you playing rock, paper, or scissors?");
-    caseSens = playerInput.toLowerCase();
+    let caseSens = playerInput.toLowerCase();
+    return caseSens; 
 
-    if(caseSens === "rock") {
-        return 1;
+    // if(caseSens === "rock") {
+    //     return 1;
 
-    } else if(caseSens === "paper") {
-        return 2;
+    // } else if(caseSens === "paper") {
+    //     return 2;
 
-    } else if(caseSens === "scissors") {
-        return 3;
-    }
+    // } else if(caseSens === "scissors") {
+    //     return 3;
+    // }
 
-    return caseSens;
+    // console.log(caseSens);
 
     // get input from player PROMPT
     // print input log
@@ -37,12 +48,25 @@ function getPlayerChoice() {
         // return player input as a number
 }  
 
+const comEnglish = console.log(computerEnglish(getComputerChoice(1, 3)))
+
+const playerChoice = console.log(getPlayerChoice());
+
 // Score Tracking
 let humanScore = 0
 let computerScore = 0
 
 function playRound(humanChoice, computerChoice) {
     // DRAW CONDITIONS
+    // if(playerChoice === "rock") {
+    //     if 
+    // } else if(playerChoice === "paper") {
+
+    // } else if (playerChoice === "scissors") {
+
+    // }
+
+
     // IF getPlayerChoice is rock/1 and getComputerChoice is rock/1.
     // or IF getPlayerChoice is paper/2 and getComputerChoice is paper/2,
     // or IF getPlayerChoice is scissors/3 and getComputerChoice is scissors/3
