@@ -53,41 +53,50 @@ let humanScore = 0
 let computerScore = 0
 
 function playRound(humanChoice, computerChoice) {
+
     if(playerChoice === "rock") {
         if(comEnglish === "rock") {
             return "draw";
         } else if(comEnglish === "paper") {
+            computerScore++;
             return "loss";
         } else if(comEnglish === "scissors") {
+            humanScore++;
             return "victory";
         }
     } else if(playerChoice === "paper") {
         if(comEnglish === "paper") {
             return "draw";
         } else if(comEnglish === "scissors") {
+            computerScore++;
             return "loss";
         } else if(comEnglish === "rock") {
+            humanScore++;
             return "victory";
         }
     } else if (playerChoice === "scissors") {
         if(comEnglish === "scissors") {
             return "draw";
         } else if(comEnglish === "rock") {
+            computerScore++;
             return "loss";
         } else if(comEnglish === "paper") {
             return "victory";
         }
     }
 
-function scoreTrack(windrawloss) {
-    if(windrawloss === "loss") {
-        return ++computerScore;
-    } else if(windrawloss === "victory") {
-        return ++humanScore;
-    } else if(windrawloss === "draw") {
-        return;  
-    }
+    
 }
+
+// function scoreTrack(actualScore) {
+//     if(actualScore === "loss") {
+//         return ++computerScore;
+//     } else if(actualScore === "victory") {
+//         return ++humanScore;
+//     } else if(actualScore === "draw") {
+//         return;  
+//     }
+// }
 
     // DRAW CONDITIONS
     // IF getPlayerChoice is rock/1 and getComputerChoice is rock/1.
@@ -108,25 +117,40 @@ function scoreTrack(windrawloss) {
     // or IF getPlayerChoice is scissors/3 and getComputerChoice is rock/1,
         // print lose
         // ++computerScore
+
+// const comEnglish = computerEnglish(getComputerChoice(1, 3));
+// const playerChoice = getPlayerChoice();
+// const round = playRound(playerChoice, comEnglish);
+
+
+    // if(scoreTrack === "victory") {
+    //     console.log(++humanScore);
+    // } else if(scoreTrack === "loss") {
+    //     console.log(++computerScore);
+    // }
+
+function game() {
+    const totalRounds = 5;
+    for (let i = 0; i < totalRounds; i++) {
+        playerChoice = getPlayerChoice();
+        comEnglish = computerEnglish(getComputerChoice(1, 3));    
+        
+        round = playRound(playerChoice, comEnglish);
+
+        sentence = "You played " + playerChoice + " and the computer played " + comEnglish + ". This means for you the round was a " + round + "!"
+        console.log(sentence)
+        console.log(`Your score is ${humanScore} and the computer's score is ${computerScore}`);
+    }
+    
+    console.log("GAME OVER");
+    if(humanScore > computerScore) {
+        console.log("You win!");  
+    } else if(humanScore < computerScore) {
+        console.log("Oh no, you lost!");
+    } else {
+        console.log("The game was a tie.");
+    }
+    
 }
 
-const comEnglish = computerEnglish(getComputerChoice(1, 3));
-
-const playerChoice = getPlayerChoice();
-
-
-const round = playRound(playerChoice, comEnglish);
-
-sentence = "You played " + playerChoice + " and the computer played " + comEnglish + ". This means for you the round was a " + round + "!"
-score = 
-
-// console.log(playerChoice)
-// console.log(comEnglish)
-// console.log(round)
-
-console.log(sentence)
-
-// console.log("Your score: " + humanScore + " / Computer score: " + computerScore)
-
-
-// let round = console.log(playRound(getPlayerChoice(), computerEnglish(getComputerChoice(1, 3))));
+game();
