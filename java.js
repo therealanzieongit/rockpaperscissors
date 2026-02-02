@@ -48,25 +48,48 @@ function getPlayerChoice() {
         // return player input as a number
 }  
 
-const comEnglish = console.log(computerEnglish(getComputerChoice(1, 3)))
-
-const playerChoice = console.log(getPlayerChoice());
-
 // Score Tracking
 let humanScore = 0
 let computerScore = 0
 
 function playRound(humanChoice, computerChoice) {
+    if(playerChoice === "rock") {
+        if(comEnglish === "rock") {
+            return "draw";
+        } else if(comEnglish === "paper") {
+            return "loss";
+        } else if(comEnglish === "scissors") {
+            return "victory";
+        }
+    } else if(playerChoice === "paper") {
+        if(comEnglish === "paper") {
+            return "draw";
+        } else if(comEnglish === "scissors") {
+            return "loss";
+        } else if(comEnglish === "rock") {
+            return "victory";
+        }
+    } else if (playerChoice === "scissors") {
+        if(comEnglish === "scissors") {
+            return "draw";
+        } else if(comEnglish === "rock") {
+            return "loss";
+        } else if(comEnglish === "paper") {
+            return "victory";
+        }
+    }
+
+function scoreTrack(windrawloss) {
+    if(windrawloss === "loss") {
+        return ++computerScore;
+    } else if(windrawloss === "victory") {
+        return ++humanScore;
+    } else if(windrawloss === "draw") {
+        return;  
+    }
+}
+
     // DRAW CONDITIONS
-    // if(playerChoice === "rock") {
-    //     if 
-    // } else if(playerChoice === "paper") {
-
-    // } else if (playerChoice === "scissors") {
-
-    // }
-
-
     // IF getPlayerChoice is rock/1 and getComputerChoice is rock/1.
     // or IF getPlayerChoice is paper/2 and getComputerChoice is paper/2,
     // or IF getPlayerChoice is scissors/3 and getComputerChoice is scissors/3
@@ -86,3 +109,24 @@ function playRound(humanChoice, computerChoice) {
         // print lose
         // ++computerScore
 }
+
+const comEnglish = computerEnglish(getComputerChoice(1, 3));
+
+const playerChoice = getPlayerChoice();
+
+
+const round = playRound(playerChoice, comEnglish);
+
+sentence = "You played " + playerChoice + " and the computer played " + comEnglish + ". This means for you the round was a " + round + "!"
+score = 
+
+// console.log(playerChoice)
+// console.log(comEnglish)
+// console.log(round)
+
+console.log(sentence)
+
+// console.log("Your score: " + humanScore + " / Computer score: " + computerScore)
+
+
+// let round = console.log(playRound(getPlayerChoice(), computerEnglish(getComputerChoice(1, 3))));
