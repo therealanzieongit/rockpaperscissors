@@ -28,6 +28,8 @@ function getPlayerChoice() {
         return 3;
     }
 
+    return caseSens;
+
     // get input from player PROMPT
     // print input log
     // if input 1 = rock, 2 = paper, 3 = scissors
